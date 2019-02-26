@@ -10,12 +10,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="entry in data ">
+      <tr v-for="( entry, index) in data" :key="index">
         <!-- <n-table-cell v-for="key in columns"> {{ entry[key] }} </n-table-cell> -->
         <td>{{entry.name}}</td>
         <td> {{ entry.eMail }} </td>
         <td> {{ entry.status }}</td>
-        <td> <n-button :onClick = "consoleClick">+</n-button> </td>
+        <td> 
+          <n-button type="success" @click = "consoleClick(index)">edit</n-button> 
+          <n-button type="danger" @click = "consoleClick(index)">del</n-button> 
+        </td>
       </tr>
     </tbody>
   </table>
@@ -46,8 +49,8 @@ export default {
     }
      },
   methods: {
-    consoleClick() {
-      console.log('Button clicked')
+    consoleClick(index) {
+      console.log('Button clicked' + index)
     }
     
   },

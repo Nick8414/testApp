@@ -1,17 +1,23 @@
 <template>
   <div>
     <h1>This is an courses page</h1>
+    <n-Button>+</n-Button>
     <Table
       :data = "data"
       :columns = "columns"></Table>
+      <n-modal></n-modal>
   </div>
 </template>
 
 <script>
 import Table from '@/components/Table.vue'
+import Button from '@/components/Button';
+import Modal from '@/components/Modal';
 export default {
   components : {
-    Table
+    Table,
+    nButton: Button,
+    nModal: Modal
   },
   data() {
     return {
