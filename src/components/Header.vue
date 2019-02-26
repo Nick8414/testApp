@@ -4,14 +4,20 @@
             <a href="/" class="main-header__brand">Test for you</a>
         </div>
         <nav class="main-nav">
-            <router-link to="/students">Students</router-link>
+            <!-- <router-link tag="li" to="/students">Students</router-link> -->
             <ul class="main-nav__items">
-                <li class="main-nav__item">
+                <!-- <li class="main-nav__item">
                     <a href="/students">Users</a>    
                 </li>
                 <li class="main-nav__item">
                     <a href="/">Courses</a>    
-                </li>
+                </li> -->
+                <router-link tag="li" exact to="/students" class="main-nav__item" active-class="active">
+                    <a>Students</a>
+                </router-link>
+                <router-link tag="li" to="/" class="main-nav__item" active-class="active">
+                    <a>Courses</a>
+                </router-link>
             </ul>
         </nav>
     </div>
@@ -81,6 +87,9 @@ export default {
     {
         color: blue;
         border-bottom: 5px solid blue;
+    }
+    .active {
+        color: brown;
     }
 
 

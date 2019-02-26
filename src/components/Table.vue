@@ -5,41 +5,55 @@
     <thead>
       <tr>
         <th v-for="key in columns">
-          {{ key }}
+          {{ key | capitalize }}
         </th>
       </tr>
     </thead>
     <tbody>
-      <!-- <tr v-for="entry in filteredHeroes">
-        <td v-for="key in columns">
-          {{entry[key]}}
-        </td>
-      </tr> -->
+      <tr v-for="entry in data ">
+        <!-- <n-table-cell v-for="key in columns"> {{ entry[key] }} </n-table-cell> -->
+        <td>{{entry.name}}</td>
+        <td> {{ entry.eMail }} </td>
+        <td> {{ entry.status }}</td>
+        <td> <n-button :onClick = "consoleClick">+</n-button> </td>
+      </tr>
     </tbody>
   </table>
 </div>
     
 </template>
 <script>
+import TableCell from '@/components/TableCell';
+import Button from '@/components/Button';
+
+
 export default {
     props: {
-    courses: Array,
-    columns: Array,
-    filterKey: String
+      data: Array,
+      columns: Array,
+      filterKey: String
   },
   data: function () {
-    return {
-    
-    }
+    return {}
+     
   },
   computed: {
     
   },
-   filters: {
+     filters: {
+    capitalize: function (str) {
+      return str.charAt(0).toUpperCase() + str.slice(1)
+    }
+     },
+  methods: {
+    consoleClick() {
+      console.log('Button clicked')
+    }
     
   },
-  methods: {
-    
+  components: {
+    nTableCell: TableCell,
+    nButton: Button
   }
     
 }
